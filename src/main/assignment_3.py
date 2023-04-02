@@ -4,13 +4,11 @@ from initial_value import *
 from linalg_stuff import *
 
 
-# Override default print function for proper formatting/whitespace
+# Override default print function for proper float formatting/whitespace
 def print(*args, **kwargs):
+    args = [f'{arg:.5f}' if type(arg) is float else arg for arg in args]
     kwargs.setdefault('end', '\n\n')
-    if len(args) == 1 and type(args[0]) is float:
-        builtins.print(f'{args[0]:.5f}', **kwargs)
-    else:
-        builtins.print(*args, sep='\n\n', **kwargs)
+    builtins.print(*args, **kwargs, sep='\n\n')
 
 
 def q1():
@@ -76,9 +74,6 @@ if __name__ == '__main__':
     print(q1())
     print(q2())
     print(q3())
-    determinant, L, U = q4()
-    print(determinant)
-    print(L)
-    print(U)
+    print(*q4())
     print(q5())
     print(q6(), end='\n')
