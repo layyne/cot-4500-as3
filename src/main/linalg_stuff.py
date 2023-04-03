@@ -34,7 +34,7 @@ def lu_factor(A):
     A = np.array(A)
     n = len(A)
     L, U = np.zeros((n, n)), np.zeros((n, n))
-    # U will have its diagonal be all 1s
+    # L will have its diagonal be all 1s
     np.fill_diagonal(L, 1)
 
     U[0, 0] = A[0, 0]
